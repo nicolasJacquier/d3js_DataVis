@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>D3 Page Template</title>
+		<h>Host Page</h>
+		
+		<script type="text/javascript" src="d3/d3.v3.js"></script>
+	</head>
+	<body>
+		<script type="text/javascript">
+			
+			var dataset = [];
+			
+			d3.csv("Transactions.csv", function(data) {
+				dataset = data.map(function(d){return d; });
+				console.log(dataset);
+				tutorialTests();
+			});
+
+			function tutorialTests(){
+				d3.select("body").selectAll("p")
+					.data(dataset)
+					.enter()
+					.append("p")
+					.text("New paragraph!");
+			}
+			
+			
+			
+		</script>
+		<div style="display: inline-block;
+			width: 20px;
+			height: 75px;
+			background-color: teal;"></div>
+	</body>
+</html>
